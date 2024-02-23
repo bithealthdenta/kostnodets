@@ -1,0 +1,1168 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "This is a Documentation API of KOST PROJECT",
+        "version": "1.0.0",
+        "title": "Kost Main-API",
+        "contact": {
+            "email": "denta.marcellus@gmail.com"
+        },
+        "servers":[
+            {
+                "url":"http://localhost:3000"
+            }
+        ]
+    },
+    "schemes": ["http"],
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "paths" : {
+        "/v1/role" : {
+            "get" : {
+              "tags":["Roles"],
+                "summary" : "Get all the role",
+                "description": "Get all the role",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/roleResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "post" : {
+              "tags":["Roles"],
+              "summary" : "insert new role",
+              "description": "insert new role",
+              "produces": ["application/json"],
+              "consumes": ["application/json"],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "description": "task object",
+                      "required": true,
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "task" : {
+                                  "type": "object",
+                                  "$ref": "#/definitions/role"
+                              } 
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "successful operation",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/definitions/roleResponse"
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+              }
+          }
+        },
+        "/v1/role/{id}":{
+            "delete" : {
+                "tags":["Roles"],
+                "summary" : "Delete role",
+                "description": "Delete role with id",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/roleResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        },
+        "get" : {
+            "tags":["Roles"],
+            "summary" : "get only one role",
+            "description": "get only one role with id",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/roleResponse"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+        
+    }
+        },
+        "/v1/customer":{
+            "get" : {
+                "tags":["Customer"],
+                  "summary" : "Get all customer",
+                  "description": "Get all customer",
+                  "produces": ["application/json"],
+                  "parameters": [],
+                  "responses": {
+                      "200": {
+                          "description": "successful operation",
+                          "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/customerResponse"
+                              }
+                          }
+                      },
+                      "400": {
+                          "description": "Invalid status value",
+                          "schema": {
+                              "$ref": "#/definitions/InvalidResponse"
+                          }
+                      }
+                  }
+              }, 
+              "post" : {
+                "tags":["Customer"],
+                "summary" : "insert new room",
+                "description": "insert new room",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "task object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "task" : {
+                                    "type": "object",
+                                    "$ref": "#/definitions/customer"
+                                } 
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/customerResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/customer/{id}":{
+            "delete" : {
+                "tags":["Customer"],
+                "summary" : "Delete customer",
+                "description": "Delete customer",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/customerResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        },
+        "get" : {
+            "tags":["Customer"],
+            "summary" : "get only one customer",
+            "description": "get only one customer",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/customerResponse"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+        
+    }
+        },
+        "/v1/customer?limit={limit}&page={page}":{
+            "get" : {
+                "tags":["Customer"],
+                "summary" : "get customer limit data and page",
+                "description": "get customer limit data and page",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/customerResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        }
+        },
+        "/v1/room" : {
+              "get" : {
+                "tags":["Rooms"],
+                  "summary" : "Get all the room",
+                  "description": "Get all the room",
+                  "produces": ["application/json"],
+                  "parameters": [],
+                  "responses": {
+                      "200": {
+                          "description": "successful operation",
+                          "schema": {
+                              "type": "object",
+                              "items": {
+                                  "$ref": "#/definitions/roomResponse"
+                              }
+                          }
+                      },
+                      "400": {
+                          "description": "Invalid status value",
+                          "schema": {
+                              "$ref": "#/definitions/InvalidResponse"
+                          }
+                      }
+                  }
+              },
+              "post" : {
+                "tags":["Rooms"],
+                "summary" : "insert new room",
+                "description": "insert new room",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "task object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "task" : {
+                                    "type": "object",
+                                    "$ref": "#/definitions/room"
+                                } 
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/roomResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+    
+        },
+        "/v1/room/{id}":{
+                "delete" : {
+                    "tags":["Rooms"],
+                    "summary" : "Delete the room",
+                    "description": "Delete the room",
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "task id that needs to be deleted",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "successful operation",
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/roomResponse"
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid status value",
+                            "schema": {
+                                "$ref": "#/definitions/InvalidResponse"
+                            }
+                        }
+                    }
+                
+            },
+            "get" : {
+                "tags":["Rooms"],
+                "summary" : "get only one room",
+                "description": "get only one room",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/roomResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        }
+        },
+        "/v1/room?limit={limit}&page={page}":{
+            "get" : {
+                "tags":["Rooms"],
+                "summary" : "get room with limit data and page",
+                "description": "get room limit data and page",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/roomResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        }
+        },
+        "/v1/user" : {
+            "get" : {
+              "tags":["Users"],
+                "summary" : "Get all the user",
+                "description": "Get all the user",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/userResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "post" : {
+              "tags":["Users"],
+              "summary" : "insert new user",
+              "description": "insert new user #NB untuk kostid merupakan array integer id, karena 1 user bisa memegang beberapa kost",
+              "produces": ["application/json"],
+              "consumes": ["application/json"],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "description": "task object",
+                      "required": true,
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "task" : {
+                                  "type": "object",
+                                  "$ref": "#/definitions/user"
+                              } 
+                          }
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "successful operation",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/definitions/userResponse"
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+              }
+          }
+    
+        },
+        "/v1/user/{id}":{
+            "delete" : {
+                "tags":["Users"],
+                "summary" : "Delete the User",
+                "description": "Delete the User",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/userResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        },
+        "get" : {
+            "tags":["Users"],
+            "summary" : "get only one user",
+            "description": "get only one user",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/userResponse"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+        
+    }
+        },
+        "/v1/kost":{
+        "get" : {
+            "tags":["Kost"],
+              "summary" : "Get all Kost",
+              "description": "Get all Kost",
+              "produces": ["application/json"],
+              "parameters": [],
+              "responses": {
+                  "200": {
+                      "description": "successful operation",
+                      "schema": {
+                          "type": "object",
+                          "items": {
+                              "$ref": "#/definitions/kostResponse"
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+              }
+          }, 
+          "post" : {
+            "tags":["Kost"],
+            "summary" : "insert new Kost",
+            "description": "insert new Kost",
+            "produces": ["application/json"],
+            "consumes": ["application/json"],
+            "parameters": [
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "task object",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "task" : {
+                                "type": "object",
+                                "$ref": "#/definitions/kost"
+                            } 
+                        }
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/kostResponse"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+        }
+        },
+        "/v1/kost/{id}":{
+        "delete" : {
+            "tags":["Kost"],
+            "summary" : "Delete Kost with ID",
+            "description": "Delete Kost with ID",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/kostResponse"
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+        
+    },
+    "get" : {
+        "tags":["Kost"],
+        "summary" : "get only one Kost with ID",
+        "description": "get only one Kost with ID",
+        "produces": ["application/json"],
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "description": "task id that needs to be deleted",
+                "required": true,
+                "type": "integer"
+            }
+        ],
+        "responses": {
+            "200": {
+                "description": "successful operation",
+                "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/kostResponse"
+                    }
+                }
+            },
+            "400": {
+                "description": "Invalid status value",
+                "schema": {
+                    "$ref": "#/definitions/InvalidResponse"
+                }
+            }
+        }
+    }
+        },
+        "/v1/kost?limit={limit}&page={page}":{
+            "get" : {
+                "tags":["Kost"],
+                "summary" : "get Kost limit data and page",
+                "description": "get Kost limit data and page",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/kostResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            
+        }
+        },
+        "/v1/auth/login": {
+            "post": {
+              "tags": [ "Values" ],
+              "operationId": "Get",
+              "consumes": [],
+              "produces": [ "text/plain", "application/json", "text/json" ],
+              "parameters": [
+                {
+                    "name": "username",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                "name": "password",
+                "in": "path",
+                "description": "task id that needs to be deleted",
+                "required": true,
+                "type": "string"
+            }],
+              "responses": {
+                "200": {
+                  "description": "Success",
+                  "schema": {
+                    "$ref": "#/definitions/securityDefinitions"
+                }
+                }
+              }
+            }
+        }
+        
+        
+    }, 
+    "definitions": {
+        "roleResponse": {
+            "type": "object",
+            "properties": {
+                "active":{
+                    "type":"boolean"
+                },
+                "role_name": {
+                    "type": "string"
+                },
+                "access": {
+                    "type":"array",
+                    "items":{
+                        "type":"boolean"
+                    }   
+                },
+                "created_date": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                }
+            }
+        },
+        "kostResponse": {
+            "type": "object",
+            "properties": {
+                "kost_name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "description":{
+                    "type":"string"
+                }
+            }
+        },
+        "userResponse": {
+            "type": "object",
+            "properties": {
+                "UserId": {
+                    "type": "integer"
+                },
+                "UserName": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Roleid": {
+                    "type": "integer"
+                },
+                "kostid":{
+                    "type":"array",
+                    "items":{
+                        "type":"integer"
+                    }   
+                }
+            }
+        },
+          "roomResponse": {
+              "type": "object",
+              "properties": {
+                  "HargaKamar": {
+                      "type": "string"
+                  },
+                  "NomorKamar": {
+                      "type": "string"
+                  },
+                  "StatusKamar": {
+                      "type": "string"
+                  },
+                  "TipeKamar": {
+                      "type": "string"
+                  },
+                  "kostid":{
+                    "type":"integer"
+                  },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                  }
+              }
+          },
+          "customerResponse":{
+            "type": "object",
+              "properties": {
+                  "Name": {
+                      "type": "string"
+                  },
+                  "Email": {
+                      "type": "string"
+                  },
+                  "NomorIdentitas": {
+                      "type": "string"
+                  },
+                  "StatusKerja": {
+                      "type": "string"
+                  },
+                  "StatusDetail": {
+                    "type": "string"
+                },
+                "PhoneNumber": {
+                    "type": "string"
+                },
+                "AlamatAsal": {
+                    "type": "string"
+                },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                  }
+              }
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+                "nik": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "account_number": {
+                    "type": "string"
+                },
+                "bank": {
+                    "type": "string"
+                },
+                "join_date": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                },
+                "birth_date": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                },
+                "birth_place": {
+                    "type": "string"
+                },
+                "created_date": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                },
+                "update_date": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                },
+                "status": {
+                    "type": "boolean"
+                },
+                "kost":{
+                    "type":"array",
+                    "items":{
+                        "type":"object"
+                    }   
+                },
+                "role": {
+                    "type": "object"
+                }
+            }
+        },
+        "kost": {
+            "type": "object",
+            "properties": {
+                "kostid": {
+                    "type": "integer"
+                },
+                "kostname": {
+                    "type": "string"
+                },
+                "alamatkost": {
+                    "type": "string"
+                },
+                "isactive":{
+                    "type":"boolean"
+                }
+            }
+        },
+        "role": {
+            "type": "object",
+            "properties": {
+                "RoleName": {
+                    "type": "string"
+                },
+                "Level": {
+                    "type": "integer"
+                },
+                "IsActive":{
+                    "type":"boolean"
+                },
+                "CreatedDate": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                }
+            }
+        },
+          "customer":{
+            "type": "object",
+              "properties": {
+                  "Name": {
+                      "type": "string"
+                  },
+                  "Email": {
+                      "type": "string"
+                  },
+                  "NomorIdentitas": {
+                      "type": "string"
+                  },
+                  "StatusKerja": {
+                      "type": "string"
+                  },
+                  "StatusDetail": {
+                    "type": "string"
+                },
+                "PhoneNumber": {
+                    "type": "string"
+                },
+                "AlamatAsal": {
+                    "type": "string"
+                },
+                  "CreatedDate": {
+                      "type": "string",
+                      "format":"date-time",
+                      "example": "2021-01-30T08:30:00Z"
+                  }
+              }
+          },
+          "room": {
+              "type": "object",
+              "properties": {
+                  "HargaKamar": {
+                      "type": "string"
+                  },
+                  "NomorKamar": {
+                      "type": "string"
+                  },
+                  "StatusKamar": {
+                      "type": "string"
+                  },
+                  "TipeKamar": {
+                      "type": "string"
+                  },
+                  "kostid":{
+                    "type":"integer"
+                  },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format":"date-time",
+                    "example": "2021-01-30T08:30:00Z"
+                  }
+              }
+          },
+          "InvalidResponse": {
+              "type": "object",
+              "properties": {
+                  "statusCode": {
+                      "type": "string"
+                  },
+                  "message": {
+                      "type": "string"
+                  }
+              }
+          },
+          "LoginModel": {
+            "type": "object",
+            "properties": {
+              "username": { "type": "SuperAdmin" },
+              "password": { "type": "password1!" }
+            }
+          }
+        },
+        "securityDefinitions": {
+          "bearerAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "type": "http",
+            "scheme":"bearer",
+            "bearerFormat":"JWT",
+            "description": "JWT Authorization header"
+          }
+        },
+        "security": [ { "bearerAuth": [] } ]
+      
+    }
