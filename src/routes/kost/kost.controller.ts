@@ -49,8 +49,6 @@ export async function httpGetAllKost(req,res){
  export async function httpUpdateKost(req,res){
     const idkost = req.params.id;
     const kost=req.body;
-    console.log(kost);
-    console.log(idkost);
     if(!idkost){
       return res.status(400).json({
         error:"id must be included"
@@ -98,7 +96,6 @@ export async function httpGetAllKost(req,res){
     const kostId=req.params.id;
     const room= await getRoomWithKostId(kostId);
     if(Object.keys(room).length>0){
-      console.log(room)
       var roomavail=await roomavaillogic(room);
       return res.status(200).json({lengthroom:roomavail})
     }
