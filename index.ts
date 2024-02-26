@@ -1,12 +1,20 @@
 import express from "express";
-const port = 8002;
+import fs from "fs";
+import path from "path";
+import https from "https";
+import http from "http";
+import { App } from "./app";
+import { connectDb } from "./src/config/db";
 
-const app = express();
+const PORT = process.env.PORT || 4000;
 
-app.get("/",(req,res)=>{
-    res.send("HELLOW");
-})
+//COMMENT DLU UNTUK HTTPS
+//const server = http.createServer(app);
+async function startServer() {
+  http.createServer(App).listen(PORT, () => {
+    connectDb();
+    console.log(`Listen to PORT ${PORT} ....`);
+  });
+}
 
-app.listen(port,()=>{
-    console.log(`now listening on port ${port}`);
-});
+startServer();
