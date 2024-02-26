@@ -1,0 +1,80 @@
+import boolean from "joi";
+import mongoose from "mongoose"
+
+const userSchema= new mongoose.Schema({
+    nik:{
+      type:String,
+      required:true,
+    },
+    username:{
+      type:String,
+      required:true,
+    },
+    password:{
+      type:String,
+      required:true,
+    },
+    first_name:{
+      type:String,
+      required:true,
+    },
+    last_name:{
+      type:String,
+      required:true,
+    },
+    phone:{
+      type:String,
+      required:true,
+    },
+    email:{
+      type:String,
+      required:true,
+    },
+    address:{
+      type:String,
+      required:true,
+    },
+    account_number:{
+      type:String,
+      required:true,
+    },
+    bank:{
+      type:String,
+      required:true,
+    },
+    join_date:{
+      type:Date,
+      required:true,
+    },
+    birth_date:{
+      type:Date,
+      required:true
+    },
+    birth_place:{
+      type:String,
+      required:true,
+    },
+    created_date:{
+      type:Date,
+      required:true
+    },
+    update_date:{
+      type:Date,
+      required:true
+    },
+    status:{
+      type:String,
+      required:true
+    },
+    kost:[{
+      type:mongoose.Schema.Types.ObjectId,
+      required:true,
+      ref:"Kost"
+    }],
+    role:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"Role"
+    }
+  });
+
+  export const userDatabase = mongoose.model("User",userSchema);

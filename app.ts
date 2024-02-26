@@ -3,13 +3,15 @@ import express from "express"
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet"
+import dotenv from 'dotenv'; 
 ////////////// SWAGGER ///////////////////
 import swaggerUi from "swagger-ui-express"
 import swaggerDocument from "./swagger/swagger.json"
 
-import {Api} from './apiversioning/api';
+import {Api} from './src/apiversioning/api';
 
 const app=express();
+dotenv.config();
 
 app.use(
     cors({
