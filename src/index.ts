@@ -4,7 +4,7 @@ import path from "path";
 import https from "https";
 import http from "http";
 import { App } from "./app";
-import { connectDb } from "./src/config/db";
+import { connectDb } from "./config/db";
 
 const PORT = process.env.PORT || 4000;
 

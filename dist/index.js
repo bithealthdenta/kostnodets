@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = __importDefault(require("http"));
 const app_1 = require("./app");
-const db_1 = require("./src/config/db");
+const db_1 = require("./config/db");
 const PORT = process.env.PORT || 4000;
 //COMMENT DLU UNTUK HTTPS
 //const server = http.createServer(app);

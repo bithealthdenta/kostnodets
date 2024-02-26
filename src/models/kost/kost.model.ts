@@ -113,7 +113,6 @@ export async function getAllKostWithSearch(input,skip,limit){
 
   }
   else{
-    console.log(input);
     const totaldata=await KostDatabase.find({
       $and:[
         {

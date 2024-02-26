@@ -1,0 +1,70 @@
+import mongoose from "mongoose";
+
+const paymentSchema=new mongoose.Schema({
+    payment_period:{
+        type:Number,
+        required:true
+    },
+    due_date:{
+        type:Date,
+        required:true
+    },
+    last_payment:{
+        type:Date,
+        required:true
+    },
+    status:{
+        type:String,
+        required:true
+    },
+    update_date:{
+        type:Date
+    },
+    //////////// NEW DATA 
+    payment_date:{
+        type:Date,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+    },
+    description:{
+        type:String,
+    },
+    date_cleared:{
+        type:Date
+    },
+    payment_notes:{
+        type:String
+    },
+    receipt_number:{
+        type:String
+    },
+    payment_recipient:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    },
+    customer_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Customer"
+    },
+    room_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Room"
+    },
+    booking_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Booking"
+    },
+    payment_method:{
+        type:String,
+        required:true,
+    },
+    proof_of_payment:{
+        type:String,
+        required:true
+    }
+});
+
+export const PaymentDatabase= mongoose.model("Payment",paymentSchema);

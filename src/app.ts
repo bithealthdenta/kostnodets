@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 import swaggerUi from "swagger-ui-express"
 import swaggerDocument from "./swagger/swagger.json"
 
-import {Api} from './src/apiversioning/api';
+import {Api} from './apiversioning/api';
 
 const app=express();
 dotenv.config();
