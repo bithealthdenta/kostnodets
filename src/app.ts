@@ -4,6 +4,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet"
 import dotenv from 'dotenv'; 
+
 ////////////// SWAGGER ///////////////////
 import swaggerUi from "swagger-ui-express"
 import swaggerDocument from "./swagger/swagger.json"
@@ -15,7 +16,7 @@ dotenv.config();
 
 app.use(
     cors({
-      origin: "http://localhost:4200"
+      origin: "http://localhost:5173"
       //origin:"https://kost-puce.vercel.app"
     })
   );
