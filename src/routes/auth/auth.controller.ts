@@ -13,7 +13,7 @@ export async function login(req,res){
 
   const userDb= await userDatabase.findOne({username:req.body.username});
   if(!userDb) return res.status(400).json({
-    message:'User Not Found'
+    message:'User Not Found',
   })
 
   //perlu dibuat dengan bcrypt
@@ -23,7 +23,7 @@ export async function login(req,res){
   // });
 
   if(req.body.password !== userDb.password) return res.status(400).json({
-    message:'Invalid Password'
+    message:'Invalid Password',
   })
 
   try{
@@ -32,9 +32,9 @@ export async function login(req,res){
       process.env.ACCESS_TOKEN_SECRET,
       {expiresIn:100000}
     );
-    res.status(200).json({token: token})
+    res.status(200).json({token: token,})
   }
   catch(error){
-    res.status(400).send(error);
+    res.status(400).send({message:error,});
   }
 }

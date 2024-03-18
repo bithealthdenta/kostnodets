@@ -29,7 +29,9 @@ async function saveBooking(booking){
         }
     ).populate("approve_by").populate("customer_id").populate("room_id");
 }
-
+export function summ(sum1, sum2){
+    return sum1+sum2;
+}
 export async function getAllBooking(skip, limit) {
     return await BookingDatabase.find(
     {},
